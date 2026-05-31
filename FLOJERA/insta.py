@@ -29,3 +29,37 @@ def draw_from_json(json_file):
     center_y = (min_y + max_y) / 2
 
     #Dibuja la region
+    for region in regions:
+        color= '#{:02x}{:02x}{:02x}'.format(
+            int(region['color'][0]), 
+            int(region['color'][1]), 
+            int(region['color'][2])
+            )
+        t.color(color,color)
+
+        #Dibujo de contorno
+        points = region['contour']
+        t.begin_fill()
+        t.penup()
+
+        #primer punto
+        x= (points[0][0] - center_x) * scale
+        y= (center_y - points[0][1]) * scale
+        t.goto(x,y)
+        t.pendown()
+
+        #Los demas puntos
+        for point in points[1:]:
+            x= (point[0] - center_x) * scale
+            y= (center_y - point[1]) * scale
+            t.goto(x,y)
+        #Cerrar forma
+
+        t.goto((points[0][0] - center_x) * scale, 
+               (center_y - points[0][1]) * scale)
+        t.end_fill()
+        screen.update()
+
+    screen.mainloop()
+    if __name__ == "__main__":
+        draw_from_json("regions.json")
