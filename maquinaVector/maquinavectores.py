@@ -41,3 +41,5 @@ def plot_decision_boundary(model, X, y):
     plt.show()
 
 plot_decision_boundary(svm_model, X_train, y_train)
+
+#Estas maquinas vectores sirven para predecir y entenar un modelo que tiene la ayuda de la libreria matplor
