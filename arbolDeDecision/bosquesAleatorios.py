@@ -4,6 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn import datasets
 import matplotlib.pyplot as plt
 
+
+#Chale, extraño la uni y a mis compas jsjsj
 #Carga los datos
 iris=datasets.load_iris()
 X = iris.data[:, [0,1]]
